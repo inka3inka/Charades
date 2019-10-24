@@ -1,0 +1,35 @@
+html {
+  font-size: 2vh;
+}
+
+.main-container {
+  font-size: 1.3rem;
+  font-family: 'Baloo Bhai', cursive;
+  text-transform: uppercase;
+  color: #2f3036;
+}
+
+.btn {
+  font-family: 'Baloo Bhai', cursive;
+  font-size: 1rem;
+}
+
+.guessed {
+  color: #1ca671;
+  font-size: .9rem;
+}
+
+.missed {
+  color: #b51f30;
+  font-size: .95rem;
+}
+
+.board-container {
+
+  div {
+
+    &:nth-child(1), &:nth-child(2) {
+      font-size: 1.8rem;
+    }
+  }
+}

@@ -1,0 +1,29 @@
+
+@mixin button {
+  width: 13vw;
+  height: 7vh;
+  color: #800080;
+  background: #fff2f9;
+  border: 4px solid #800080;
+  border-radius: 15px;
+  transition: all 0.3s ease 0s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:hover {
+    color: #494949;
+    border-radius: 50px;
+    border-color: #494949;
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+  }
+}
+
+/*
+@mixin media-mobile {
+  @media screen and (max-width: 768px) {
+    @content;
+  }
+}
+ */
