@@ -3,9 +3,18 @@ import ReactDOM from "react-dom";
 import {ButtonsContainer} from "./buttons.js";
 import TeamContainer from "./teamsContainer.js";
 import BoardContainer from "./boardContainer.js";
-import appFunctions from "./functions.js";
 
-appFunctions();
+
+//Load passwords
+// function appFunctions() {
+//   fetch("http://qb.net.pl/upload/answers.json", {
+//     method: 'GET'})
+//     .then(resp => resp.json())
+//     .then(items => console.log(items))
+// }
+//
+// appFunctions();
+
 
 
 //Main container

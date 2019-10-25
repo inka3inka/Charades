@@ -21,7 +21,11 @@ class CurrentPassword extends Component {
     return (
       <>
         <div>Current password</div>
-        <div className="guessed-password">RRRRRR</div>
+        <div className="guessed-password">
+          <ul>
+            {/*<Passwords />*/}
+          </ul>
+        </div>
       </>
     )
   }
