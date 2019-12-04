@@ -46,23 +46,13 @@
     background-image: linear-gradient(to right, #f8f165, #d0f36b, #a4f379, #70f18d, #00eea5);
     margin-right: 2vw
   }
-
-  .team-3 {
-    background-image: linear-gradient(to right, #6dfbf5, #77ffd6, #9affaf, #c7fb86, #f8f165);
-    margin-left: 2vw
-  }
-
-  .team-4 {
-    background-image: linear-gradient(to right, #f8f165, #ffc347, #ff9148, #ff5d5b, #ee2775);
-    margin-right: 2vw
-  }
 }
 
 .team-container {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  height: 50%;
+  height: 100%;
   padding: 1vw 0;
   margin-bottom: 3vh;
   border-radius: 15px;
@@ -76,10 +66,10 @@
       &:after {
         content: '';
         width: 0;
-        height: 60%;
+        height: 70%;
         position: absolute;
         border: 1px solid #303036;
-        top: 9vh;
+        top: 15vh;
         left: 13.5vw;
       }
     }
@@ -94,7 +84,7 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    height: 70%;
+    height: 80%;
     width: 85%;
     background-color: #fff2f9;
     border-radius: 15px;

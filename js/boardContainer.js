@@ -17,13 +17,16 @@ class BoardContainer extends Component {
 }
 
 class CurrentPassword extends Component {
+  state = {
+    currentPassword: ""
+  }
   render() {
     return (
       <>
         <div>Current password</div>
         <div className="guessed-password">
           <ul>
-            {/*<Passwords />*/}
+            {this.state.currentPassword}
           </ul>
         </div>
       </>

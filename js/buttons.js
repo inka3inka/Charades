@@ -3,35 +3,55 @@ import React, {Component} from "react";
 //Main buttons
 
 
-//Button picking passwords
+//Button for picking passwords
+
 class ButtonPickingPasswords extends Component {
 
   state = {
-    passwords: []
+    passwords: [],
+    disabled: false
   };
-
-  componentDidMount() {
-    fetch("http://qb.net.pl/upload/answers.json", {
-      method: 'GET'
-    })
-      .then(resp => resp.json())
-      .then(response => this.setState({
-        passwords: response
-      }));
-  }
 
   //Pick up random password
   randomer = (elements) => {
-    elements = this.state.passwords;
-    const randomNumber = Math.floor(Math.random() * elements.length);
+    this.setState({
+      passwords: elements
+    })
+
+    //Select password
+
+    const randomNumber = Math.floor(Math.random() * this.state.passwords.length);
     console.log(this.state.passwords[randomNumber]);
-    return this.state.passwords[randomNumber];
+
+    //Remove selected password from passwords
+    const passowrds = [...this.state.passwords];
+    const currentPasswords = passowrds.filter(element => element !== this.state.passwords[randomNumber]);
+    if(currentPasswords.length > 0) {
+      this.state = ({
+        passwords: currentPasswords
+      })
+    }
+    else {
+      console.log('End game!');
+      this.state = ({
+        passwords: [],
+        disabled: true
+      })
+    }
+
+    //Test
+    console.log(this.state.passwords)
   };
 
   render() {
 
     return(
-      <button className={this.props.class} onClick={this.randomer}><span>{this.props.name.toUpperCase()}</span></button>
+      <PasswordsContext.Consumer>
+        {passwords =>
+          <button className={this.props.class} onClick={this.randomer(passwords)} disabled={this.state.disabled}>
+            <span>{this.props.name.toUpperCase()}</span></button>
+        }
+      </PasswordsContext.Consumer>
     )
 
   }
@@ -46,6 +66,8 @@ class Button extends Component {
     )
   }
 }
+
+//Render all buttons
 
 class ButtonsContainer extends Component {
   render() {
