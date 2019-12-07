@@ -46,10 +46,19 @@ export class MainContainer extends Component {
 
     //Test
     console.log(this.state.passwords);
-    console.log(this.state.teamName)
+    console.log(this.state.teamName[0])
   };
 
+  //Load a Team's name
 
+  teamNameLoader = () => {
+    const teamName = [...this.state.teamName];
+    const newName = prompt("Set Team's name (max 8 signs)");
+    const newNames = teamName.concat(newName);
+    this.setState({
+      teamName: newNames
+    })
+  };
 
   //App's state
 
@@ -57,7 +66,8 @@ export class MainContainer extends Component {
     passwords: [],
     randomer: this.randomer,
     disabled: false,
-    teamName: []
+    teamName: [],
+    teamNameLoader: this.teamNameLoader
   };
 
 
