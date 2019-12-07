@@ -56,23 +56,9 @@
   padding: 1vw 0;
   margin-bottom: 3vh;
   border-radius: 15px;
-  position: relative;
 
   .team-name {
     height: 5vh;
-
-    &:first-child {
-
-      &:after {
-        content: '';
-        width: 0;
-        height: 70%;
-        position: absolute;
-        border: 1px solid #303036;
-        top: 15vh;
-        left: 13.5vw;
-      }
-    }
 
     span {
       line-height: 5vh;
@@ -93,6 +79,15 @@
       padding: 1vw 1vw 0;
       width: 100%;
       text-align: center;
+    }
+
+    &:after {
+      content: '';
+      width: 0;
+      height: 60%;
+      position: absolute;
+      border: 1px solid #303036;
+      top: 27vh;
     }
   }
 }
@@ -130,4 +125,15 @@
 
 .btn {
   @include button;
+}
+
+@keyframes jump {
+  0%   {transform: translate3d(0,0,0) scale3d(1,1,1);}
+  //40%  {transform: translate3d(0,30%,0) scale3d(.7,1.5,1);}
+  100% {transform: translate3d(0,100%,0) scale3d(1.5,.7,.1);}
+}
+
+.jump {
+  transform-origin: 50% 50%;
+  animation: jump .5s linear alternate infinite;
 }

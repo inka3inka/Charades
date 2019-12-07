@@ -34,7 +34,7 @@ class TeamName extends Component {
 
   render() {
     return (
-      <div className="team-name" onClick={this.addNewTeam}>
+      <div className="team-name jump" onClick={this.addNewTeam}>
         <span>Team: </span>
         <span>{this.state.team}</span>
       </div>

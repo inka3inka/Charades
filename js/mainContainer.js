@@ -17,8 +17,9 @@ export class MainContainer extends Component {
       .then(resp => resp.json())
       .then(response => this.setState({
         passwords: response
-      }));
+      }))
   }
+
 
   //Pick up random password
 
@@ -44,15 +45,19 @@ export class MainContainer extends Component {
       });
 
     //Test
-    console.log(this.state.passwords)
+    console.log(this.state.passwords);
+    console.log(this.state.teamName)
   };
+
+
 
   //App's state
 
   state = {
     passwords: [],
     randomer: this.randomer,
-    disabled: false
+    disabled: false,
+    teamName: []
   };
 
 
