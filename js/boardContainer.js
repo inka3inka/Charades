@@ -38,10 +38,14 @@ class CurrentPassword extends Component {
 class ResultOptions extends Component {
   render() {
     return (
+      <PasswordsContext.Consumer>
+        {({handlePointsGuessed, handlePointsMissed}) =>
       <div>
-        <Button name="guessed" class="btn" />
-        <Button name="miessed" class="btn" />
+        <Button name="guessed" class="btn" onDone={handlePointsGuessed}/>
+        <Button name="miessed" class="btn" onDone={handlePointsMissed}/>
       </div>
+        }
+      </PasswordsContext.Consumer>
     )
   }
 }

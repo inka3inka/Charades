@@ -11,7 +11,7 @@ class TeamContainer extends Component {
       <div className={`team-container container ${this.props.class}`}>
         <TeamName teamName={this.props.teamName}/>
         <TeamPasswords/>
-        <TeamScore/>
+        <TeamScore teamScore={this.props.teamScore}/>
       </div>
     )
   }
@@ -71,18 +71,12 @@ class TeamPasswords extends Component {
 }
 
 class TeamScore extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      score: []
-    };
-  }
 
   render() {
     return (
       <div>
         <span>SCORE: </span>
-        <span>xxxxx</span>
+        <span>{this.props.teamScore}</span>
       </div>
     )
   }
