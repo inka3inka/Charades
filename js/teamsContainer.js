@@ -9,7 +9,7 @@ class TeamContainer extends Component {
   render() {
     return (
       <div className={`team-container container ${this.props.class}`}>
-        <TeamName/>
+        <TeamName teamName={this.props.teamName}/>
         <TeamPasswords/>
         <TeamScore/>
       </div>
@@ -18,16 +18,15 @@ class TeamContainer extends Component {
 }
 
 
-
 class TeamName extends Component {
 
   render() {
     return (
       <PasswordsContext.Consumer>
-        {({teamName, teamNameLoader}) => (
-        <div className="team-name jump" onClick={teamNameLoader}>
+        {() => (
+        <div className="team-name">
           <span>Team: </span>
-          <span>{teamName[0]}</span>
+          <span>{this.props.teamName}</span>
         </div>
         )}
       </PasswordsContext.Consumer>

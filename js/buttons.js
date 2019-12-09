@@ -31,7 +31,7 @@ class Button extends Component {
 
   render() {
     return(
-      <button className={this.props.class}><span>{this.props.name.toUpperCase()}</span></button>
+      <button className={this.props.class} onClick={this.props.onDone} disabled={this.props.disabled}><span>{this.props.name.toUpperCase()}</span></button>
     )
   }
 }
@@ -42,7 +42,7 @@ class ButtonsContainer extends Component {
   render() {
     return (
       <div className="buttons-container container">
-        <Button name="OPTIONS" class="btn"/>
+        <Button name="OPTIONS" class="btn" disabled={this.props.disabled}/>
         <ButtonPickingPasswords name="SELECT PASSWORD" class="btn" />
         <Button name="RESET THE GAME" class="btn" />
       </div>
