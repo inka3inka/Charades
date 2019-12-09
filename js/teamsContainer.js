@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import {PasswordsContext} from './context'
 
 //Functions
 
@@ -8,7 +9,7 @@ class TeamContainer extends Component {
   render() {
     return (
       <div className={`team-container container ${this.props.class}`}>
-        <TeamName/>
+        <TeamName teamName={this.props.teamName}/>
         <TeamPasswords/>
         <TeamScore/>
       </div>
@@ -17,27 +18,18 @@ class TeamContainer extends Component {
 }
 
 
-
 class TeamName extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      team: ''
-    };
-  }
-
-  addNewTeam = () => {
-      this.setState({
-        team: prompt("Set Team's name (max 8 signs)")
-      })
-    };
 
   render() {
     return (
-      <div className="team-name jump" onClick={this.addNewTeam}>
-        <span>Team: </span>
-        <span>{this.state.team}</span>
-      </div>
+      <PasswordsContext.Consumer>
+        {() => (
+        <div className="team-name">
+          <span>Team: </span>
+          <span>{this.props.teamName}</span>
+        </div>
+        )}
+      </PasswordsContext.Consumer>
     )
   }
 }

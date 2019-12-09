@@ -2,7 +2,8 @@ import React, {Component} from "react";
 import {ButtonsContainer} from "./buttons.js";
 import TeamContainer from "./teamsContainer.js";
 import BoardContainer from "./boardContainer.js";
-import {PasswordsContext} from "./context"
+import {PasswordsContext} from "./context";
+import {EnterName} from "./enterNames";
 
 //Main container
 
@@ -46,10 +47,26 @@ export class MainContainer extends Component {
 
     //Test
     console.log(this.state.passwords);
-    console.log(this.state.teamName)
   };
 
+  // Load a Team's name
 
+  handleNameChange = e => {
+    e.preventDefault();
+    this.setState({
+      [e.target.name]: e.target.value
+    },
+      //Validation
+
+      () => {
+      if (this.state.team1.length > 0 && this.state.team2.length > 0 && this.state.team1 !== this.state.team2){
+        this.setState({
+          disabledBtnEnterNames: false
+        })
+      }
+    })
+    console.log(this.state.team1, this.state.team2)
+  }
 
   //App's state
 
@@ -57,7 +74,10 @@ export class MainContainer extends Component {
     passwords: [],
     randomer: this.randomer,
     disabled: false,
-    teamName: []
+    team1: "",
+    team2: "",
+    handleNameChange: this.handleNameChange,
+    disabledBtnEnterNames: true
   };
 
 
@@ -68,12 +88,13 @@ export class MainContainer extends Component {
         <div className="main-container container">
           <ButtonsContainer/>
           <div className="main-board-container container">
+            <EnterName />
             <div className="teams-container container">
-              <TeamContainer class="team-1" />
+              <TeamContainer class="team-1" teamName={this.state.team1}/>
             </div>
-            <BoardContainer/>
+            <BoardContainer />
             <div className="teams-container container">
-              <TeamContainer class="team-2"/>
+              <TeamContainer class="team-2" teamName={this.state.team2}/>
             </div>
           </div>
         </div>
