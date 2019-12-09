@@ -31,12 +31,14 @@ export class MainContainer extends Component {
     //Remove selected password from passwords
 
     const passwords = [...this.state.passwords];
+    const currentPassword = passwords[randomNumber];
     const currentPasswords = passwords.filter(element => element !== passwords[randomNumber]);
 
-    //Set new state of passwords
+    //Set new state of passwords and current Password for guessing
 
     this.setState({
-        passwords: currentPasswords
+        passwords: currentPasswords,
+        currentPassword: currentPassword
       },
 
       //Disable button when the passwords array is empty
@@ -72,6 +74,7 @@ export class MainContainer extends Component {
 
   state = {
     passwords: [],
+    currentPassword: '',
     randomer: this.randomer,
     disabled: false,
     team1: "",

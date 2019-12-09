@@ -1,5 +1,6 @@
 import {Button} from "./buttons";
 import React, {Component} from "react";
+import {PasswordsContext} from './context'
 
 //Board component
 
@@ -17,19 +18,19 @@ class BoardContainer extends Component {
 }
 
 class CurrentPassword extends Component {
-  state = {
-    currentPassword: ""
-  }
+
   render() {
     return (
+      <PasswordsContext.Consumer>
+        {({currentPassword}) =>
       <>
         <div>Current password</div>
         <div className="guessed-password">
-          <ul>
-            {this.state.currentPassword}
-          </ul>
+            {currentPassword}
         </div>
       </>
+        }
+      </PasswordsContext.Consumer>
     )
   }
 }
