@@ -49,6 +49,11 @@ export class MainContainer extends Component {
 
     //Test
     console.log(this.state.passwords);
+
+    //Change team
+
+    this.handleActivityTeam();
+    console.log(this.state.teamActive1)
   };
 
   // Load a Team's name
@@ -69,38 +74,44 @@ export class MainContainer extends Component {
     }, console.log(this.state.team1, this.state.team2))
   }
 
-  handleActivityTeam = () => {
+  //Function for change active team
 
+  handleActivityTeam = () => {
+    this.setState({
+      teamActive1: !this.state.teamActive1
+    })
   }
 
   handlePointsGuessed = () => {
     const password = this.state.currentPassword;
-    if (this.state.teamActive === 1 && this.state.usedPasswords.indexOf(password) === -1) {
+    if (this.state.teamActive1 === true && this.state.usedPasswords.indexOf(password) === -1) {
       this.setState({
         guessedTeam1: this.state.guessedTeam1.concat(password),
         usedPasswords: this.state.usedPasswords.concat(password)
       })
     }
-    else if (this.state.teamActive === 2 && this.state.usedPasswords.indexOf(password) !== -1) {
+    else if (this.state.teamActive1 === false && this.state.usedPasswords.indexOf(password) === -1){
       this.setState({
         guessedTeam2: this.state.guessedTeam2.concat(password),
         usedPasswords: this.state.usedPasswords.concat(password)
       })
+      console.log('team2!')
     }
+
     console.log(this.state.guessedTeam1);
     console.log(this.state.guessedTeam2);
   }
 
   handlePointsMissed = () => {
     const password = this.state.currentPassword;
-    if (this.state.teamActive === 1 && this.state.usedPasswords.indexOf(password) === -1) {
+    if (this.state.teamActive1 === true && this.state.usedPasswords.indexOf(password) === -1) {
         this.setState({
           missedTeam1: this.state.missedTeam1.concat(password),
           usedPasswords: this.state.usedPasswords.concat(password)
         })
 
     }
-    else if (this.state.teamActive === 2 && this.state.usedPasswords.indexOf(password) !== -1) {
+    else if (this.state.teamActive1 === false && this.state.usedPasswords.indexOf(password) === -1) {
       this.setState({
         missedTeam2: this.state.missedTeam2.concat(password),
         usedPasswords: this.state.usedPasswords.concat(password)
@@ -124,7 +135,7 @@ export class MainContainer extends Component {
     team2: "",
     handleNameChange: this.handleNameChange,
     disabledBtnEnterNames: true,
-    teamActive: 1,
+    teamActive1: false,
     guessedTeam1: [],
     guessedTeam2: [],
     missedTeam1: [],
