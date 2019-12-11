@@ -41,11 +41,15 @@ class Button extends Component {
 class ButtonsContainer extends Component {
   render() {
     return (
+      <PasswordsContext.Consumer>
+        {({reset}) =>
       <div className="buttons-container container">
         <Button name="OPTIONS" class="btn" disabled={this.props.disabled}/>
         <ButtonPickingPasswords name="SELECT PASSWORD" class="btn" />
-        <Button name="RESET THE GAME" class="btn" />
+        <Button name="RESET THE GAME" class="btn" onDone={reset}/>
       </div>
+        }
+      </PasswordsContext.Consumer>
     )
   }
 }

@@ -122,6 +122,39 @@ export class MainContainer extends Component {
     console.log(this.state.missedTeam2);
   }
 
+  //reset game feature
+
+  reset = () => {
+
+    fetch("http://qb.net.pl/upload/answers.json", {
+      method: 'GET'
+    })
+      .then(resp => resp.json())
+      .then(response => this.setState({
+        passwords: response
+      }));
+
+    this.setState ({
+      passwords: [],
+      currentPassword: '',
+      usedPasswords: [],
+      randomer: this.randomer,
+      disabled: false,
+      team1: "",
+      team2: "",
+      handleNameChange: this.handleNameChange,
+      disabledBtnEnterNames: true,
+      teamActive1: false,
+      guessedTeam1: [],
+      guessedTeam2: [],
+      missedTeam1: [],
+      missedTeam2: [],
+      handlePointsGuessed: this.handlePointsGuessed,
+      handlePointsMissed: this.handlePointsMissed,
+      reset: this.reset
+    })
+  }
+
 
   //App's state
 
@@ -141,7 +174,8 @@ export class MainContainer extends Component {
     missedTeam1: [],
     missedTeam2: [],
     handlePointsGuessed: this.handlePointsGuessed,
-    handlePointsMissed: this.handlePointsMissed
+    handlePointsMissed: this.handlePointsMissed,
+    reset: this.reset
   };
 
 
