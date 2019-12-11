@@ -143,11 +143,23 @@ export class MainContainer extends Component {
           <div className="main-board-container container">
             <EnterName />
             <div className="teams-container container">
-              <TeamContainer class="team-1" teamName={this.state.team1} teamScore={this.state.guessedTeam1.length}/>
+              <TeamContainer
+                class="team-1"
+                teamName={this.state.team1}
+                teamScore={this.state.guessedTeam1.length}
+                passwordsGuessed={this.state.guessedTeam1}
+                passwordsMissed={this.state.missedTeam1}
+              />
             </div>
             <BoardContainer />
             <div className="teams-container container">
-              <TeamContainer class="team-2" teamName={this.state.team2} teamScore={this.state.guessedTeam2.length}/>
+              <TeamContainer
+                class="team-2"
+                teamName={this.state.team2}
+                teamScore={this.state.guessedTeam2.length}
+                passwordsGuessed={this.state.guessedTeam2}
+                passwordsMissed={this.state.missedTeam2}
+              />
             </div>
           </div>
         </div>
