@@ -12,7 +12,7 @@ export class MainContainer extends Component {
   //Fetch API
 
   componentDidMount() {
-    fetch("http://inka3inka.github.io/Charades/upload/answers.json", {
+    fetch("https://inka3inka.github.io/Charades/upload/answers.json", {
       method: 'GET'
     })
       .then(resp => resp.json())
@@ -126,7 +126,7 @@ export class MainContainer extends Component {
 
   reset = () => {
 
-    fetch("http://qb.net.pl/upload/answers.json", {
+    fetch("https://inka3inka.github.io/Charades/upload/answers.json", {
       method: 'GET'
     })
       .then(resp => resp.json())
