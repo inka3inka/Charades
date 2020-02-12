@@ -12,7 +12,7 @@ export class MainContainer extends Component {
   //Fetch API
 
   componentDidMount() {
-    fetch("http://qb.net.pl/upload/answers.json", {
+    fetch("https://qb.net.pl/upload/answers.json", {
       method: 'GET'
     })
       .then(resp => resp.json())
