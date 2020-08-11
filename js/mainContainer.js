@@ -12,7 +12,7 @@ export class MainContainer extends Component {
   //Fetch API
 
   componentDidMount() {
-    fetch("https://inka3inka.github.io/Charades/answers.json", {
+    fetch("https://raw.githubusercontent.com/inka3inka/Charades/master/answers.json", {
       method: 'GET'
     })
       .then(resp => resp.json())
